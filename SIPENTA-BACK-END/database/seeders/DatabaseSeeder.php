@@ -17,6 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $testUserPassword = env('SEED_TEST_USER_PASSWORD');
+
+        if (blank($testUserPassword)) {
+            throw new \RuntimeException('Missing SEED_TEST_USER_PASSWORD. Set it in .env before running database seeders.');
+        }
+
         // Call SuperAdminSeeder to create super admin user
         $this->call(SuperAdminSeeder::class);
 
@@ -27,7 +33,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'nama' => 'Test User',
             'email' => 'test@example.com',
-            'kata_sandi' => Hash::make('password123'),
+            'kata_sandi' => Hash::make($testUserPassword),
             'peran' => 'viewer',
         ]);
 
