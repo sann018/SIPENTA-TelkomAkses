@@ -1,0 +1,34 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Dependencies
+**/node_modules/
+**/vendor/
+
+# Build output and runtime files
+**/dist/
+**/build/
+**/public/hot
+**/public/storage
+**/storage/logs/
+**/storage/framework/cache/data/
+**/storage/framework/sessions/
+**/storage/framework/views/
+**/storage/*.key
+
+# Local tooling and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.local
+*.zip
+
+# Temporary files
+.codex-temp/
+*.tmp
+*.bak
